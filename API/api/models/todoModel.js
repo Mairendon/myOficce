@@ -1,21 +1,27 @@
 const { sequelize } = require("../../database");
 const { DataTypes } = require("sequelize");
 
-const ProjectsModel = sequelize.define(
-  "projects",
+const TodoModel = sequelize.define(
+  "todos",
   {
-    projectName: {
+    todoName: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     description: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     dataCreate: {
       type: DataTypes.DATE,
       defaultValue: DataTypes.NOW,
     },
+    FinalDate: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
   },
   { timestamps: false }
 );
+
+module.exports = TodoModel;
